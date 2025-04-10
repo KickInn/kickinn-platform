@@ -1,0 +1,1 @@
+// GeneratorContract.sol placeholder

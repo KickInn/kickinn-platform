@@ -1,0 +1,1 @@
+// RewardContract.sol placeholder

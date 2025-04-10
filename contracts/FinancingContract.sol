@@ -1,0 +1,1 @@
+// FinancingContract.sol placeholder
