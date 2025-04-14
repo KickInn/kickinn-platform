@@ -1,0 +1,96 @@
+# Kick Inn – OpenAPI Specification (v0.1)
+openapi: 3.0.0
+info:
+  title: Kick Inn API
+  version: 0.1
+  description: MVP endpoints for ideators, contributors, and investors
+
+servers:
+  - url: https://kickinn.api.dev
+    description: Dev environment
+
+paths:
+  /api/auth/register:
+    post:
+      summary: Register a new user
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                role:
+                  type: string
+      responses:
+        '200':
+          description: Registration successful
+
+  /api/deal/create:
+    post:
+      summary: Submit a new idea (ideator flow)
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                problem_statement:
+                  type: string
+                category:
+                  type: string
+      responses:
+        '201':
+          description: Idea submitted
+
+  /api/deal/{id}:
+    get:
+      summary: Get deal details by ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Deal data
+
+  /api/investment/commit:
+    post:
+      summary: Make an investment
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                deal_id:
+                  type: string
+                amount:
+                  type: number
+      responses:
+        '200':
+          description: Investment processed
+
+  /api/track:
+    post:
+      summary: Log a frontend event
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                event:
+                  type: string
+                payload:
+                  type: object
+      responses:
+        '200':
+          description: Event logged

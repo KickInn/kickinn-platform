@@ -1,0 +1,6 @@
+"scripts": {
+  "test": "hardhat test",
+  "test:api": "jest test/api.test.js",
+  "test:e2e": "playwright test",
+  "test:e2e:ui": "playwright test --ui"
+}
