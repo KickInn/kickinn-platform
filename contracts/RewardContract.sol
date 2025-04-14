@@ -30,3 +30,4 @@ contract RewardContract is Ownable {
 
     // Optional: add deposit(), withdraw(), stake() functions if used with LP logic
 }
+
